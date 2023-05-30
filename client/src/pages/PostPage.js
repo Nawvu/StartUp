@@ -45,6 +45,7 @@ export default function PostPage() {
               <div className="list-chapter">
                 <p>tổng hợp chương</p>
                 <div className="load-chap">
+                <div className="content" dangerouslySetInnerHTML={{ __html: postInfo.content }} />
                   {userInfo.id === postInfo.poster._id && (
                     <div className="edit-row">
                       <Link className="edit-btn" to={`/edit/${postInfo._id}`}>
@@ -58,7 +59,7 @@ export default function PostPage() {
                 </div>
 
               </div>
-              <div className="content" dangerouslySetInnerHTML={{ __html: postInfo.content }} />
+              
             </div>
           </div>
 

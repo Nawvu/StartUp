@@ -14,7 +14,7 @@ const uploadMiddleware = multer({ dest: 'uploads/' });
 const fs = require('fs');
 
 const salt = bcrypt.genSaltSync(10);
-const secret = 'asdfe45we45werjktjwertkj';
+const secret = 'asdfe45wrjktjwertkj';
 
 app.use(cors({credentials:true,origin:'http://localhost:3000'}));
 app.use(express.json());
@@ -106,11 +106,11 @@ app.put('/post',uploadMiddleware.single('file'), async (req,res) => {
     if (err) throw err;
     const {id,title,summary,content,author} = req.body;
     const postDoc = await Post.findById(id);
-    const isAuthor = JSON.stringify(postDoc.poster) === JSON.stringify(info.id);
-    if (!isAuthor) {
+    const isPoster = JSON.stringify(postDoc.poster) === JSON.stringify(info.id);
+    if (!isPoster) {
       return res.status(400).json('you are not the author');
     }
-    await postDoc.update({
+    await postDoc.updateOne({
       title,
       summary,
       content,

@@ -7,6 +7,7 @@ export default function EditPost() {
   const [title,setTitle] = useState('');
   const [summary,setSummary] = useState('');
   const [content,setContent] = useState('');
+  const [author,setAuthor] = useState('');
   const [files, setFiles] = useState('');
   const [redirect,setRedirect] = useState(false);
 
@@ -17,6 +18,7 @@ export default function EditPost() {
           setTitle(postInfo.title);
           setContent(postInfo.content);
           setSummary(postInfo.summary);
+          setAuthor(postInfo.author);
         });
       });
   }, []);
@@ -27,6 +29,7 @@ export default function EditPost() {
     data.set('title', title);
     data.set('summary', summary);
     data.set('content', content);
+    data.set('author', author);
     data.set('id', id);
     if (files?.[0]) {
       data.set('file', files?.[0]);
@@ -55,6 +58,10 @@ export default function EditPost() {
              placeholder={'Summary'}
              value={summary}
              onChange={ev => setSummary(ev.target.value)} />
+      <input type="author"
+             placeholder={'Author'}
+             value={author}
+             onChange={ev => setAuthor(ev.target.value)} />  
       <input type="file"
              onChange={ev => setFiles(ev.target.files)} />
       <Editor onChange={setContent} value={content} />
