@@ -19,7 +19,7 @@ header{
     display:flex;
     justify-content:space-between;
     margin-top: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     align-items: center;
 }
 header a{
@@ -63,7 +63,7 @@ div.post p.info{
     display: flex;
     gap: 10px;
 }
-div.post p.info a.author{
+div.post p.info a.poster{
     color:#333;
 }
 div.post p.summary{
@@ -98,10 +98,25 @@ form.login h1, form.register h1{
     text-align: center;
 }
 
+div.post-page{
+    display: block; margin-left: auto; margin-right: auto;
+    width: 80%;
+    background: #fff;
+    padding: 10px;
+}
+
 div.post-page div.image{
-    max-height:300px;
-    display: flex;
-    overflow:hidden;
+    display: inline-block;
+    display: block;
+    height: auto;
+    max-width: 100%;
+    padding: 2%;
+    line-height: 1.428571429;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
 }
 div.post-page div.image img{
     object-fit: cover;
@@ -123,10 +138,11 @@ div.post-page time{
     color:#aaa;
     margin: 10px 0;
 }
-div.post-page div.author{
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: .7rem;
+div.post-page div.poster    {
+    font-weight: bold;
+}
+div.post-page div.author    {
+    color: red;
     font-weight: bold;
 }
 div.content p{
@@ -152,4 +168,60 @@ div.post-page a.edit-btn{
 }
 a svg{
     height:20px;
+}
+
+div.post-page .detail {
+    border: 1px solid #000
+}
+
+div.post-page .detail .title {
+    background: #000;
+    color: #fff;
+    text-align: center;
+    /* font-weight:bold; */
+    padding: 10px;
+}
+
+div.post-page .detail .summary {
+    padding: 10px;
+    word-wrap: break-word
+}
+
+div.post-page .description {
+    font-weight: bold;
+}
+
+div.post-page div.description{
+    display: inline-block;
+    display: block;
+    height: auto;
+    max-width: 100%;
+    padding: 4px;
+    line-height: 1.428571429;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.post-page-big {
+    padding: 10px;
+    line-height: 1.428571429;
+    background-color: #fff;
+    border: 10px solid #ddd;
+    border-radius: 10px;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.post-page .list-chapters {
+    margin: 3px 0 50px 0;
+    border: 2px solid #045391;
+}
+
+.post-page .list-chapter>p:first-child {
+    color: #fff;
+    background: #045391;
+    padding: 5px 10px;
+    border: 2px solid #045391;
 }
